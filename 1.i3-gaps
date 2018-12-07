@@ -178,3 +178,6 @@ for_window [class="^.*"] border pixel 0
 
 gaps inner 15
 gaps outer 10
+
+#highlight active window
+client.focused <> <> <> <> #FF00FF
