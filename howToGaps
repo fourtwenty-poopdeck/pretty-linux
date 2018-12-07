@@ -35,7 +35,6 @@ gaps inner 30
 gaps outer 20
 
 IF THERE IS AN ERROR, THESE STEPS WILL MOST LIKELY SOLVE IT
-#install git
 #install automake
 #install libtool
 #install libxcb-shape0-dev libxcb-shape0
