@@ -40,6 +40,9 @@ IF THERE IS AN ERROR, THESE STEPS WILL MOST LIKELY SOLVE IT
 #install libxcb-shape0-dev libxcb-shape0
 
 FOR THE FULL EXPERIENCE, INSTALL
-feh
-compton
-xrandr (for mult monitor setup)
+feh - image viewer
+compton - compositor
+xrandr - mult monitor config
+arandr - gui frontend for xrandr
+i3status - take a wild guess
+ranger - file manager
