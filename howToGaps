@@ -38,3 +38,8 @@ IF THERE IS AN ERROR, THESE STEPS WILL MOST LIKELY SOLVE IT
 #install automake
 #install libtool
 #install libxcb-shape0-dev libxcb-shape0
+
+FOR THE FULL EXPERIENCE, INSTALL
+feh
+compton
+xrandr (for mult monitor setup)
