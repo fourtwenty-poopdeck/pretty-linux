@@ -1,23 +1,12 @@
-# i3 config file
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+#https://i3wm.org/docs/userguide.html
 
+#mod key
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -48,10 +37,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -60,13 +49,16 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+Return split h
+bindsym $mod+Shift+b split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Shift+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen
+
+#open firefox
+bindsym $mod+f exec --no-startup-id firefox
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -82,38 +74,41 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
+#open steam 
 #workspace variable
-set $workspace1 "LEARN UP"
-set $workspace2 "YOUTUBES"
-set $workspace3 "i3"
-set $workspace4 "STEAM"
-set $workspace10 "MUSIC"
-# switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace $workspace10
+set $workspace1 "UNO"
+set $workspace2 "DOS"
+set $workspace3 "TRES"
+set $workspace4 "LEARN UP"
+set $workspace5 "BROWSER"
+set $workspace6 "i3"
+set $workspace7 "STEAM"
+set $workspace8 "YOUTUBES"
+set $workspace9 "myCODE"
+set $workspace0 "MUSIC"
 
+# switch to workspace
+bindsym $mod+1 workspace $workspace4
+bindsym $mod+2 workspace $workspace5
+bindsym $mod+3 workspace $workspace6
+bindsym $mod+4 workspace $workspace7
+bindsym $mod+5 workspace $workspace8
+bindsym $mod+6 workspace $workspace9
+bindsym $mod+7 workspace $workspace1
+bindsym $mod+8 workspace $workspace2
+bindsym $mod+9 workspace $workspace3
+bindsym $mod+0 workspace $workspace0
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+1 move container to workspace $workspace4
+bindsym $mod+Shift+2 move container to workspace $workspace5
+bindsym $mod+Shift+3 move container to workspace $workspace6
+bindsym $mod+Shift+4 move container to workspace $workspace7
+bindsym $mod+Shift+5 move container to workspace $workspace8
+bindsym $mod+Shift+6 move container to workspace $workspace9
+bindsym $mod+Shift+7 move container to workspace $workspace1
+bindsym $mod+Shift+8 move container to workspace $workspace2
+bindsym $mod+Shift+9 move container to workspace $workspace3
+bindsym $mod+Shift+0 move container to workspace $workspace0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -151,26 +146,42 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+ colors {
+        background #323232
+        statusline #00A5FF #that neon blue
+        separator #666666
+
+        focused_workspace  #4c7899 #285577 #ffffff
+        active_workspace   #333333 #5f676a #ffffff
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+    }
         status_command i3status
 }
 
 #set backgrounds
 ##currently slideshow of all default mint 19 BG
 exec_always feh --recursive --randomize --bg-fill /usr/share/backgrounds/*
-  
+
 #set monitors
 ##currently set up for tri monitor w/ tv on  top, dell on left, samsung on right
 #(haven't made resolution changes yet, may want to experiment w/ that soon)#
 exec_always xrandr --output DisplayPort-1 --off --output DisplayPort-0 --off --output DVI-D-0 --mode 1680x1050 --pos 1920x1080 --rotate normal --output HDMI-A-1 --mode 1920x1080 --pos 1192x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x1080 --rotate normal
- 
+
 #start compton
 exec_always compton
 
 #i3-gaps 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 
 gaps inner 15
 gaps outer 10
 
 #highlight active window
-client.focused <> <> <> <> #FF00FF
+client.focused #FF00FF #FF00FF #FF00FF #FF00FF #FF00FF
+
+#wifi applet
+exec_always --no-startup-id nm-applet
+
+#bluetooth applet
+exec_always --no-startup-id blueman-applet
